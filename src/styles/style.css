@@ -290,18 +290,32 @@ h1{
     padding-top: 20px;
 }
 
-.categories__items_item{
-
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity .2s linear;
+.categories__items_item {
+  color: #18272F;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.categories__items_item:hover{
-   opacity: 1;
+.categories__items_item::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
 }
+
+.categories__items_item:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
 
 
 /* ItemPage */
@@ -323,6 +337,60 @@ h1{
   padding: 10px;
   flex-direction: column;
 
+}
+
+.item__body_basketButtonBlock{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0px;
+  width: 690px;
+  height: 40px;
+}
+
+.item__body_basketButton{
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.item__body_basketButton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.item__body_basketButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.item__body_basketButton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 .item__body_image_changeForward{
@@ -357,11 +425,18 @@ h1{
 
 
 /* BasketPage */
+
+.basket_background{
+  margin: 0;
+  background: #36395A;
+  background-size: cover;
+  min-height: 100%;
+  padding: 20px;
+}
 .basket__body{
   padding: 70px;
-  height: 100%;
+  min-height: 100vh;
   background: rgb(81, 144, 200);
-
 }
 
 .basket__body_content{
@@ -512,3 +587,88 @@ h1{
   background: white;
 }
 
+
+
+/**/
+.card {
+  width: 248px;
+  height: 275px;
+  padding-bottom: 45px;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ }
+ 
+ .card-img {
+  background-color: #ffcaa6;
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+  transition: .3s ease;
+  
+ }
+ 
+ .card-info {
+  padding-top: 10%;
+  
+ }
+ 
+ svg {
+  width: 25px;
+  height: 25px;
+ }
+ 
+ .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+ }
+ 
+ /*Text*/
+ .text-title {
+  font-weight: 900;
+  font-size: 1.15em;
+  line-height: 1.5;
+  padding: 0px 3px;
+ }
+
+ .text-title-price{
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+  padding: 3px;
+  color: #E64848;
+ }
+ 
+ .text-body {
+  font-size: .9em;
+  padding-bottom: 10px;
+  padding: 2px;
+ }
+ 
+ /*Button*/
+ .card-button {
+  border: 1px solid #252525;
+  display: flex;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s ease-in-out;
+ }
+ 
+ /*Hover*/
+ .card-img:hover {
+  transform: translateY(-13px);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+ }
+ 
+ .card-button:hover {
+  
+  border: 1px solid #ffcaa6;
+  background-color: #ffcaa6;
+ }
+ 

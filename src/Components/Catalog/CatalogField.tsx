@@ -1,9 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import CatalogContentBlock from "./CatalogContentBlock";
 
 import "../../styles/style.css";
 import { useAppSelector } from "../../redux/hooks";
+import CatalogTestBlock from "./CatalogTestBlock";
 
 export const CatalogField = () => {
   const SELECTED_CATEGORY = useAppSelector((state) => state.home.category);
@@ -20,7 +19,7 @@ export const CatalogField = () => {
         </div>
         <div className="catalog__body">
           {Items.map((item) => (
-            <CatalogContentBlock key={item.id} {...item} />
+            <CatalogTestBlock key={item.id} {...item} />
           ))}
         </div>
       </div>

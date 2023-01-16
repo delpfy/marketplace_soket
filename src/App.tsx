@@ -8,27 +8,17 @@ import ItemPage from "./Pages/ItemPage";
 import HomePage from "./Pages/HomePage";
 
 import "./styles/style.css";
-import { SetDisplayItems } from "./redux/home/homeSlice";
 import { useAppDispatch } from "./redux/hooks";
-import {IItemsDisplay} from './redux/types'
+import { fetchGoods } from "./redux/home/asyncActions";
 
 
 function App() {
   const dispatch = useAppDispatch();
   
-  const SET_DISPLAY_ITEMS = (items: IItemsDisplay[]) => {
-    dispatch(SetDisplayItems(items));
-  };
-
   useEffect(() => {
-    fetch("https://63b6c2204f17e3a931becf3f.mockapi.io/items")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        SET_DISPLAY_ITEMS(json);
-      });
+    dispatch(fetchGoods());
   }, []);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

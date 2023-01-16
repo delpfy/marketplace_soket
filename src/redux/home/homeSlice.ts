@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { InitialiseHome } from "../../utils/InitialiseHome";
 import {IItemsDisplay, HomeState} from '../types'
+import { fetchGoods } from "./asyncActions";
 
 const initialState: HomeState = InitialiseHome();
 
@@ -18,7 +19,12 @@ const homeSlice = createSlice({
       state.itemsDisplay = action.payload;
     },
   },
-});
+  extraReducers: (builder) => {
+    builder.addCase(fetchGoods.fulfilled, (state, action) => {
+      state.itemsDisplay = action.payload;
+    });
+
+  }});
 
 export const { SetID, SetCategory, SetDisplayItems } = homeSlice.actions;
 export default homeSlice.reducer;

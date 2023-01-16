@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import search_icon from "../../assets/img/search_icon.svg";
-import { useDispatch, useSelector } from "react-redux";
 import { IItemsDisplay } from "../../redux/types";
 import { SetID } from "../../redux/home/homeSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
