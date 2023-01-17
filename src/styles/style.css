@@ -83,7 +83,7 @@ h1{
 .menu__search_logo{
   position: absolute;
   cursor: pointer;
-  height: 40px;
+  height: 30px;
   margin-left: 550px;
   
 }
@@ -147,7 +147,9 @@ h1{
   .menu__search_logo{
     margin-left: 458px;
   }
-
+  .menu__search_display{
+    width: 500px;
+  }
 }
 
 @media only screen and (max-width:996px ){
@@ -157,7 +159,12 @@ h1{
   .menu__search_logo{
     margin-left: 355px;
   }
-
+  .menu__search_display{
+    width: 400px;
+  }
+  .menu__search_display_item{
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width:900px ){
@@ -167,13 +174,26 @@ h1{
   .menu__search_logo{
     margin-left: 255px;
   }
-
+  .menu__search_display{
+    width: 300px;
+  }
+  .menu__search_display_item{
+    font-size: 13px;
+  }
 }
 
 @media only screen and (max-width:796px ){
   .menu__search{
    width: 200px;
    margin-left: 0px;
+  }
+  .menu__search_display{
+    width: 260px;
+    margin-left: 0px;
+  }
+  .menu__search_display_item{
+    font-size: 11px;
+
   }
   .menu__search_logo{
     margin-left: 225px;
@@ -191,6 +211,9 @@ h1{
   .menu__search{
    width: 200px;
    margin-left: 0px;
+  }
+  .menu__search_display{
+    z-index: 3;
   }
   .menu__search_logo{
     margin-left: 225px;
@@ -319,6 +342,10 @@ h1{
   .menu__basket{
     width: 55px;
   }
+  .menu__search_display{
+    width: 230px;
+   
+  }
   .menu__search_input{
     width: 180px;
   }
@@ -333,6 +360,10 @@ h1{
   }
   .menu__search_input {
     width: 154px;
+  }
+  .menu__search_display{
+    width: 205px;
+   
   }
   .menu__search_logo{
     margin-left: 165px ;
@@ -349,6 +380,15 @@ h1{
   margin-left: 157px;
   height: 22px;
   width: 22px;
+}
+.menu__search_display{
+  width: 180px;
+  
+}
+.menu__search_display_item{
+  height: 24px;
+  font-size: 10px;
+  padding: 2px;
 }
 .menu__basket{
   width: 15px;
@@ -1215,11 +1255,7 @@ h1{
     max-height: 220px;
     width: 390px;
   }
-  .basket__item_AppendReduse {
 
-    flex-direction: row;
-
-  }
 }
 @media only screen and (max-width: 460px) {
   

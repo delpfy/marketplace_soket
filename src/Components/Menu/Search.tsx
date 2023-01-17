@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import search_icon from "../../assets/img/search_icon.svg";
+import cross_sign from "../../assets/img/cross_sign.png";
 import { IItemsDisplay } from "../../redux/types";
 import { SetID } from "../../redux/home/homeSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -35,12 +35,11 @@ export const Search = () => {
       <div className="menu__search">
         <input
           value={searchItem}
-          autoFocus
           className="menu__search_input"
           placeholder="Type here"
           onChange={(e) => setSearchItem(e.target.value)}
         />
-        <img className="menu__search_logo" src={search_icon} alt="searchLogo" />
+        <img className="menu__search_logo" src={cross_sign} alt="searchLogo" onClick={() => setSearchItem('')}/>
       </div>
       <ul
         className={
