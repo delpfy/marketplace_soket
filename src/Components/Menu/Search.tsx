@@ -50,7 +50,7 @@ export const Search = () => {
         {localDisplayItems.map((el) => (
           <Link
           key={el.name}
-            to="/item"
+            to="/marketplace_soket/item"
             onClick={() => (dispatch(SetID(el.id)), setSearchItem(""))}          
           >
             {" "}

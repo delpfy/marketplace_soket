@@ -94,7 +94,7 @@ export const BasketItemBlock = ({ item }:any) => {
   return (
     <div className="basket__item_body">
       <Link
-        to="/item"
+        to="/marketplace_soket/item"
         className="basket__item_link"
         onClick={() => {
           dispatch(SetCategory(item.props.category));
@@ -135,7 +135,7 @@ export const BasketItemBlock = ({ item }:any) => {
 
         <div className="basket__item_AppendReduse_minus_bkgr">
           <Link
-            to={ITEMS_AMOUNT.length === 1 ? "/" : "/basket"}
+            to={ITEMS_AMOUNT.length === 1 ? "/marketplace_soket" : "/marketplace_soket/basket"}
             className="basket__item_minus_link"
           >
             <img
@@ -149,7 +149,7 @@ export const BasketItemBlock = ({ item }:any) => {
       </div>
       <div className="basket__item_cross">
         <Link
-          to={ITEMS.length === 1 ? "/" : "/basket"}
+          to={ITEMS.length === 1 ? "/marketplace_soket" : "/marketplace_soket/basket"}
           className="basket__item_cross_link"
         >
           <img src={cross_sign} alt="cross" onClick={() => Remove_Item()} />

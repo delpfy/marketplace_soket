@@ -21,9 +21,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/item" element={<ItemPage />} />
-      <Route path="/basket" element={<BasketPage />} />
+      <Route path="/marketplace_soket" element={<HomePage />} />
+      <Route path="/marketplace_soket/item" element={<ItemPage />} />
+      <Route path="/marketplace_soket/basket" element={<BasketPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

@@ -6,7 +6,7 @@ import "../../styles/style.css";
 
 export const Logo = () => {
   return (
-    <Link to="/" className="menu__logo">
+    <Link to="/marketplace_soket" className="menu__logo">
       <span className="menu__logo_text">Socket</span>
       <img src={socket_logo} alt="logo" className="menu__logo_image" />
     </Link>

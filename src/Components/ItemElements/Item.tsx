@@ -46,6 +46,7 @@ export const Item = (props: any) => {
   return (
     <>
       <div className="item__body">
+        <div className="item__body_image_block">
         <div
           onClick={() =>
             setImageIndex(imageIndex - 1 !== -1 ? imageIndex - 1 : imageIndex)
@@ -73,10 +74,12 @@ export const Item = (props: any) => {
             {">"}{" "}
           </button>
         </div>
+        </div>
+       
         <div className="item__body_subcontent">
-          <h1>{props.name}</h1>
-          <h1>{props.price}₴</h1>
-          <p>{props.description}</p>
+          <h1 className="item__body_subcontent_name">{props.name}</h1>
+          <h1 className= "item__body_subcontent_price">{props.price}₴</h1>
+          <p className="item__body_subcontent_description">{props.description}</p>
           
             <div className="item__body_basketButtonBlock">
               <button className="item__body_basketButton" onClick={() => Add_Item()}>Додати до кошика</button>
