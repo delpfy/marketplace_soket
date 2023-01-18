@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CatalogField from "../Components/Catalog/CatalogField";
 import CategoriesField from "../Components/Categories/CategoriesField";
+import CategoriesSideNav from "../Components/Categories/CategoriesSideNav";
 
 import MenuField from "../Components/Menu/MenuField";
 
@@ -13,7 +14,7 @@ export const HomePage = () => {
       <MenuField />
       <body className="body">
         <CatalogField />
-        <CategoriesField />
+        <CategoriesSideNav />
       </body>
     </div>
   );

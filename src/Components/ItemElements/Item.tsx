@@ -78,7 +78,7 @@ export const Item = (props: any) => {
        
         <div className="item__body_subcontent">
           <h1 className="item__body_subcontent_name">{props.name}</h1>
-          <h1 className= "item__body_subcontent_price">{props.price}₴</h1>
+          <h1 className= "item__body_subcontent_price">₴ {props.price}</h1>
           <p className="item__body_subcontent_description">{props.description}</p>
           
             <div className="item__body_basketButtonBlock">

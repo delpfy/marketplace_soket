@@ -28,4 +28,5 @@ export interface HomeState {
   itemsDisplay: IItemsDisplay[];
   categories: {id: number, name: string}[] ;
   category: string;
+  catalogSize: number;
 }

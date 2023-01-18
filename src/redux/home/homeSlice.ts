@@ -18,6 +18,9 @@ const homeSlice = createSlice({
     SetDisplayItems(state, action: PayloadAction<IItemsDisplay[]>) {
       state.itemsDisplay = action.payload;
     },
+    SetCatalogSize(state, action: PayloadAction<number>){
+      state.catalogSize = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGoods.fulfilled, (state, action) => {
@@ -26,5 +29,5 @@ const homeSlice = createSlice({
 
   }});
 
-export const { SetID, SetCategory, SetDisplayItems } = homeSlice.actions;
+export const { SetID, SetCategory, SetDisplayItems,SetCatalogSize } = homeSlice.actions;
 export default homeSlice.reducer;

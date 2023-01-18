@@ -12,5 +12,6 @@ export const InitialiseHome = () => {
     itemsDisplay: [] as IItemsDisplay[],
     categories,
     category: "Монітори",
+    catalogSize: 1300
   };
 };

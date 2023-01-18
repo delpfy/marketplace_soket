@@ -7,7 +7,7 @@ export const Basket = () => {
   const EXPENCES = useAppSelector((state) => state.basket.expences);
   
   return (
-    <Link to={EXPENCES !== 0 ? "/marketplace_soket/basket" : "/marketplace_soket"}>
+    <Link to={EXPENCES !== 0 ? "/marketplace_soket/basket" : ""}>
       <div className="menu__basket">
         <span className="menu__basket_text">{EXPENCES}₴</span>
         <div className="menu__basket_image_around">
