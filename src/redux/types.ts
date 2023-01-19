@@ -29,4 +29,5 @@ export interface HomeState {
   categories: {id: number, name: string}[] ;
   category: string;
   catalogSize: number;
+  isOpened: boolean;
 }

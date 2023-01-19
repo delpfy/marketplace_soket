@@ -20,6 +20,11 @@ const homeSlice = createSlice({
     },
     SetCatalogSize(state, action: PayloadAction<number>){
       state.catalogSize = action.payload;
+    },
+    SetNavState(state, action: PayloadAction<boolean>){
+      
+        state.isOpened = action.payload;
+      
     }
   },
   extraReducers: (builder) => {
@@ -29,5 +34,5 @@ const homeSlice = createSlice({
 
   }});
 
-export const { SetID, SetCategory, SetDisplayItems,SetCatalogSize } = homeSlice.actions;
+export const { SetID, SetCategory, SetDisplayItems,SetCatalogSize,SetNavState} = homeSlice.actions;
 export default homeSlice.reducer;
