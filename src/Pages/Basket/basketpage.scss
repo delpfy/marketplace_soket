@@ -1,0 +1,23 @@
+.basket_background {
+  margin: 0;
+  background: #36395a;
+  background-size: cover;
+  min-height: 100%;
+  padding: 20px;
+}
+.body {
+  padding: 70px;
+  min-height: 100vh;
+  background: rgb(81, 144, 200);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 50px;
+  border-radius: 10px;
+  background: rgb(215, 214, 214);
+}
+
+

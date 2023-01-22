@@ -1,0 +1,18 @@
+.header {
+  background: black;
+  padding: 1.5%;
+  z-index: 5;
+  position: sticky;
+  top: 0.1px;
+}
+
+.menu {
+  position: relative;
+  background: rgb(152, 239, 152);
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  padding: 5px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+}
