@@ -102,21 +102,9 @@ export const BasketItemBlock = ({ item }: any) => {
           dispatch(SetID(item.props.id));
         }}
       >
-        <div className="images">
-          {images.map((image: string) => (
-            <img
-              key={image}
-              className="image"
-              src={image}
-              alt={item.props.name}
-            />
-          ))}
-        </div>
+        <img src={images[0]} className="images" />
         <div className="info">
-          <div className="info_name">
-            {" "}
-            Назва: {item.props.name}{" "}
-          </div>
+          <div className="info_name"> Назва: {item.props.name} </div>
           <div>Ціна: {item.props.price} </div>
           <div>
             У кошику:{" "}
@@ -124,45 +112,48 @@ export const BasketItemBlock = ({ item }: any) => {
           </div>
         </div>
       </Link>
-      <div className="AppendReduse">
-        <div className="plus_bkgr">
-          <img
-            className="plus"
-            src={append_icon}
-            alt="plus"
-            onClick={() => Append_ItemAmount()}
-          />
+      <div className="AppendReduseCross">
+        <div className="AppendReduse">
+          <div className="plus_bkgr">
+            <img
+              className="plus"
+              src={append_icon}
+              alt="plus"
+              onClick={() => Append_ItemAmount()}
+            />
+          </div>
+
+          <div className="minus_bkgr">
+            <Link
+              to={
+                ITEMS_AMOUNT.length === 1
+                  ? "/marketplace_soket"
+                  : "/marketplace_soket/basket"
+              }
+              className="minus_link"
+            >
+              <img
+                className="minus"
+                src={reduce_icon}
+                alt="minus"
+                onClick={() => Reduce_ItemAmount()}
+              />
+            </Link>
+          </div>
         </div>
 
-        <div className="minus_bkgr">
+        <div className="cross">
           <Link
             to={
-              ITEMS_AMOUNT.length === 1
+              ITEMS.length === 1
                 ? "/marketplace_soket"
                 : "/marketplace_soket/basket"
             }
-            className="basket__item_minus_link"
+            className="cross_link"
           >
-            <img
-              className="minus"
-              src={reduce_icon}
-              alt="minus"
-              onClick={() => Reduce_ItemAmount()}
-            />
+            <img src={cross_sign} alt="cross" onClick={() => Remove_Item()} />
           </Link>
         </div>
-      </div>
-      <div className="cross">
-        <Link
-          to={
-            ITEMS.length === 1
-              ? "/marketplace_soket"
-              : "/marketplace_soket/basket"
-          }
-          className="cross_link"
-        >
-          <img src={cross_sign} alt="cross" onClick={() => Remove_Item()} />
-        </Link>
       </div>
     </div>
   );

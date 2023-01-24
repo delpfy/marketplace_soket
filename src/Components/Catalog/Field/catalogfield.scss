@@ -2,33 +2,28 @@
   transition: width 0.5s;
   justify-content: space-around;
   height: 100%;
-}
 
-.catalog__head {
-  border-bottom: 1px solid black;
+  .catalog__head {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 15px 0px;
+    justify-content: center;
 
-  display: flex;
-  padding: 15px 0px;
+    .catalog__head_category {
+      padding: 0.5%;
+      text-align: center;
+      font-size: 1.8rem;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+  }
 
-  justify-content: center;
-}
-
-.catalog__head_category {
-  padding: 0.5%;
-  text-align: center;
-  font-size: 1.8rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.catalog__body {
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-row-gap: 4em;
-  flex-wrap: wrap;
-  height: 100%;
-  position: relative;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 3%;
+  .catalog__body {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    position: relative;
+    grid-row-gap: 4em;
+    height: 100%;
+    padding: 3%;
+  }
 }

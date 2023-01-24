@@ -43,12 +43,12 @@ export const Item = (props: any) => {
     }
   };
   return (
-    <>
+
       <div className="item__body">
         <div className="item__body_image_block">
           <div
             onClick={() =>
-              setImageIndex(imageIndex - 1 !== -1 ? imageIndex - 1 : imageIndex)
+              setImageIndex(imageIndex - 1 !== -1 ? imageIndex - 1 : 2)
             }
             className="item__body_image_changeBackward"
           >
@@ -64,7 +64,7 @@ export const Item = (props: any) => {
           ></img>
           <div
             onClick={() =>
-              setImageIndex(imageIndex + 1 !== 3 ? imageIndex + 1 : imageIndex)
+              setImageIndex(imageIndex + 1 !== 3 ? imageIndex + 1 : 0)
             }
             className="item__body_image_changeForward"
           >
@@ -92,7 +92,7 @@ export const Item = (props: any) => {
           </div>
         </div>
       </div>
-    </>
+
   );
 };
 

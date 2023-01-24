@@ -4,16 +4,17 @@
   cursor: pointer;
   width: 12%;
   align-items: center;
-}
-.logotype_text {
-  color: black;
-  padding-top: 1px;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
+  .logotype_text {
+    color: black;
+    padding-top: 1px;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .logotype_image {
+    width: 28%;
+    padding-left: 2px;
+  }
 }
 
-.logotype_image {
-  width: 28%;
-  padding-left: 2px;
-}

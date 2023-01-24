@@ -7,10 +7,10 @@ import BasketPage from "./Pages/Basket/BasketPage";
 import ItemPage from "./Pages/Item/ItemPage";
 import HomePage from "./Pages/Home/HomePage";
 
-
 import { useAppDispatch } from "./redux/hooks";
 import { fetchGoods } from "./redux/home/asyncActions";
-import './styles/style.css';
+import "./styles/style.css";
+import MenuField from "./Components/Menu/MenuArea/MenuField";
 function App() {
   const dispatch = useAppDispatch();
 
@@ -19,12 +19,15 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/marketplace_soket" element={<HomePage />} />
-      <Route path="/marketplace_soket/item" element={<ItemPage />} />
-      <Route path="/marketplace_soket/basket" element={<BasketPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <>
+      <MenuField />
+      <Routes>
+        <Route path="/marketplace_soket" element={<HomePage />} />
+        <Route path="/marketplace_soket/item" element={<ItemPage />} />
+        <Route path="/marketplace_soket/basket" element={<BasketPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
 

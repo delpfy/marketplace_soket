@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { SetNavState } from "../../../redux/home/homeSlice";
 import CatalogTestBlock from "../Block/CatalogTestBlock";
 
-import './catalogfield.scss';
+import "./catalogfield.scss";
 
 export const CatalogField = () => {
   const SELECTED_CATEGORY = useAppSelector((state) => state.home.category);
@@ -22,24 +22,22 @@ export const CatalogField = () => {
   };
 
   return (
-    <>
-      <div
-        className="catalog"
-        style={{ width: `${CATALOG_SIZE}px` }}
-        onClick={() => SET_NAV_STATE()}
-      >
-        <div className="catalog__head">
-          <div className="catalog__head_category">
-            <strong> {SELECTED_CATEGORY} </strong>
-          </div>
-        </div>
-        <div className="catalog__body">
-          {Items.map((item) => (
-            <CatalogTestBlock key={item.id} {...item} />
-          ))}
+    <div
+      className="catalog"
+      style={{ width: `${CATALOG_SIZE}px` }}
+      onClick={() => SET_NAV_STATE()}
+    >
+      <div className="catalog__head">
+        <div className="catalog__head_category">
+          <strong> {SELECTED_CATEGORY} </strong>
         </div>
       </div>
-    </>
+      <div className="catalog__body">
+        {Items.map((item) => (
+          <CatalogTestBlock key={item.id} {...item} />
+        ))}
+      </div>
+    </div>
   );
 };
 

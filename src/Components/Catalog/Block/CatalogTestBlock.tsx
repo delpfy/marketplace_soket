@@ -46,12 +46,12 @@ export const CatalogTestBlock = (props: any) => {
   return (
     <>
       <div onClick={() => dispatch(SetID(props.id))} className="card">
-        <Link to="/marketplace_soket/item" className="link">
+        <Link to="/marketplace_soket/item">
           <img className="card-img" src={props.image[0]} alt={props.name} />
         </Link>
 
         <div className="card-info">
-          <p className="text-title">{props.name} </p>
+          <p className="text-title">{props.name}</p>
         </div>
         <div className="card-footer">
           <span className="text-title-price">₴{props.price}</span>
