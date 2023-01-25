@@ -24,7 +24,7 @@ export const CatalogField = () => {
   return (
     <div
       className="catalog"
-      style={{ width: `${CATALOG_SIZE}px` }}
+      style={{ width: `${CATALOG_SIZE}%` }}
       onClick={() => SET_NAV_STATE()}
     >
       <div className="catalog__head">

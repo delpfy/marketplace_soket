@@ -12,7 +12,7 @@ export const InitialiseHome = () => {
     itemsDisplay: [] as IItemsDisplay[],
     categories,
     category: "Монітори",
-    catalogSize: 1500,
+    catalogSize: 100,
     isOpened: false
   };
 };

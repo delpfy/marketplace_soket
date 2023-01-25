@@ -27,12 +27,12 @@ export const CategoriesSideNav = () => {
   const NAV_SET = () => {
     if (IS_OPENED) {
       setSideNavWidth(0);
-      setArrowState(5);
-      dispatch(SetCatalogSize(1500));
+      setArrowState(1);
+      dispatch(SetCatalogSize(100));
     } else {
       setSideNavWidth(200);
-      setArrowState(205);
-      dispatch(SetCatalogSize(1300));
+      setArrowState(201);
+      dispatch(SetCatalogSize(85));
     }
     SET_NAV_STATE();
   };
@@ -40,8 +40,8 @@ export const CategoriesSideNav = () => {
   useEffect(() => {
     if (!IS_OPENED) {
       setSideNavWidth(0);
-      setArrowState(5);
-      dispatch(SetCatalogSize(1500));
+      setArrowState(1);
+      dispatch(SetCatalogSize(100));
     }
   }, [IS_OPENED]);
 
@@ -50,7 +50,7 @@ export const CategoriesSideNav = () => {
       <div
         id="mySidenav"
         className="sidenav"
-        style={{ width: `${sideNavWidth}px` }}
+        style={{ minWidth: `${sideNavWidth}px` }}
       >
         {CATEGORIES.map((category) => (
           <h1

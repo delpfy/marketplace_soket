@@ -11,6 +11,10 @@
     font-size: 30px;
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
+
+    @media (max-width: 436px) {
+      font-size: 25px;
+    }
   }
   .basket_image_around {
     display: flex;
@@ -32,4 +36,8 @@
       transform: rotate(360deg);
     }
   }
+  @media (max-width: 436px) {
+    flex-direction: column-reverse;
+  }
+  
 }

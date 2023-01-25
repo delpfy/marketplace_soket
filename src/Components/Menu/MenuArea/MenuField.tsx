@@ -6,14 +6,16 @@ import Search from "../SearchArea/Search";
 
 import "./menu.scss";
 
-
 export const MenuField = () => {
   return (
     <>
       <div className="header">
         <div className="menu">
-          <Logo />
-          <Search />
+          <div className="LogoSearch">
+            <Logo />
+            <Search />
+          </div>
+
           <Basket />
         </div>
       </div>
