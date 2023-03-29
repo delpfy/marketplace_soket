@@ -11,6 +11,7 @@ import { useAppDispatch } from "./redux/hooks";
 import { fetchGoods } from "./redux/home/asyncActions";
 import "./styles/style.css";
 import MenuField from "./Components/Menu/MenuArea/MenuField";
+import AppBarMenu from "./Components/Menu/AppBar/AppBarMenu";
 function App() {
   const dispatch = useAppDispatch();
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <>
-      <MenuField />
+      <AppBarMenu />
       <Routes>
         <Route path="/marketplace_soket" element={<HomePage />} />
         <Route path="/marketplace_soket/item" element={<ItemPage />} />
