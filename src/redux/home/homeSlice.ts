@@ -22,10 +22,9 @@ const homeSlice = createSlice({
       state.catalogSize = action.payload;
     },
     SetNavState(state, action: PayloadAction<boolean>){
-      
         state.isOpened = action.payload;
-      
     }
+
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGoods.fulfilled, (state, action) => {

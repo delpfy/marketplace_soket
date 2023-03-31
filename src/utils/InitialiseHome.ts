@@ -13,6 +13,7 @@ export const InitialiseHome = () => {
     categories,
     category: "Монітори",
     catalogSize: 100,
-    isOpened: false
+    isOpened: false,
+    
   };
 };

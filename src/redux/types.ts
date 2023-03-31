@@ -30,4 +30,5 @@ export interface HomeState {
   category: string;
   catalogSize: number;
   isOpened: boolean;
+  
 }
