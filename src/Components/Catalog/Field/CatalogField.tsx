@@ -1,12 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { IItems } from "../../../redux/types";
 import { getItemsByCategory } from "../../../redux/home/asyncActions";
-import CatalogTestBlock from "../Block/CatalogTestBlock";
+
 
 import "./catalogfield.scss";
-import NotFoundPage from "../../../Pages/NotFound/NotFoundPage";
+
+import Card from "../Block/CatalogCard/Card";
+import Skeleton from "../Block/CatalogCard/Skeleton";
 
 export const CatalogField = () => {
   const { category, status } = useAppSelector((state) => state.home);
@@ -23,14 +25,75 @@ export const CatalogField = () => {
 
   const Catalog = () => {
     return (
-      <Box>
-        <Box>
-          <Typography variant={"h3"}>{category}</Typography>
+      <Box width={"100%"} paddingTop={"2%"}>
+        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Typography variant={"h3"} fontSize={30} fontFamily={"Comfortaa"}>
+            {category}
+          </Typography>
         </Box>
         <Box>
-          {items.map((item: IItems) => (
-            <CatalogTestBlock key={item._id} {...item} />
-          ))}
+          <Grid
+            container
+            padding={"2%"}
+            spacing={{ xs: 1, sm: 3, md: 4 }}
+            columns={{ xs: 2, sm: 8, md: 12, lg: 16, xl: 20 }}
+          >
+            {items.map((item: IItems) => (
+              <Grid
+                item
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                xs={2}
+                sm={4}
+                md={4}
+                lg={4}
+                xl={5}
+                key={item._id}
+              >
+                <Card key={item._id} {...item} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+    );
+  };
+
+  const CatalogSkeletons = () => {
+    return (
+      <Box width={"100%"} paddingTop={"2%"}>
+        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Typography variant={"h3"} fontSize={30} fontFamily={"Comfortaa"}>
+            {category}
+          </Typography>
+        </Box>
+        <Box>
+          <Grid
+            container
+            padding={"2%"}
+            spacing={{ xs: 1, sm: 3, md: 4 }}
+            columns={{ xs: 2, sm: 8, md: 12, lg: 16, xl: 20 }}
+          >
+            {
+              
+              Array.from({ length: 10 }, () => {
+                return <Grid
+                item
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                xs={2}
+                sm={4}
+                md={4}
+                lg={4}
+                xl={5}
+              >
+                <Skeleton />
+              </Grid>
+              })
+            }
+          </Grid>
         </Box>
       </Box>
     );
@@ -38,7 +101,7 @@ export const CatalogField = () => {
 
   return (
     // 'success' | 'pending'| 'error'
-    status === "success" ? <Catalog /> : <NotFoundPage />
+    status === "success" ? <Catalog /> : <CatalogSkeletons />
   );
 };
 
