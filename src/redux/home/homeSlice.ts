@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { InitialiseHome } from "../../utils/InitialiseHome";
-import {IItemsDisplay, HomeState} from '../types'
-import { fetchGoods } from "./asyncActions";
+import {IItemsDisplay, HomeState, IItemDisplay} from '../types'
+import { getAllItems, getItemById, getItemsByCategory } from "./asyncActions";
 
 const initialState: HomeState = InitialiseHome();
 
@@ -15,23 +15,57 @@ const homeSlice = createSlice({
     SetCategory(state, action: PayloadAction<string>) {
       state.category = action.payload;
     },
-    SetDisplayItems(state, action: PayloadAction<IItemsDisplay[]>) {
+    SetDisplayItems(state, action: PayloadAction<IItemsDisplay>) {
       state.itemsDisplay = action.payload;
     },
-    SetCatalogSize(state, action: PayloadAction<number>){
-      state.catalogSize = action.payload;
-    },
-    SetNavState(state, action: PayloadAction<boolean>){
-        state.isOpened = action.payload;
-    }
+    
 
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchGoods.fulfilled, (state, action) => {
+
+    // All items.
+    builder.addCase(getAllItems.fulfilled, (state, action) => {
+      state.status = 'success';
       state.itemsDisplay = action.payload;
+    });
+    builder.addCase(getAllItems.pending, (state) => {
+      state.status = 'pending';
+      state.itemsDisplay = {} as IItemsDisplay;
+    });
+    builder.addCase(getAllItems.rejected, (state) => {
+      state.status = 'error';
+      state.itemsDisplay = {} as IItemsDisplay;
+    });
+
+    // Items by category.
+    builder.addCase(getItemsByCategory.fulfilled, (state, action) => {
+      state.status = 'success';
+      state.itemsCategory = action.payload;
+    });
+    builder.addCase(getItemsByCategory.pending, (state) => {
+      state.status = 'pending';
+      state.itemsCategory = {} as IItemsDisplay;
+    });
+    builder.addCase(getItemsByCategory.rejected, (state) => {
+      state.status = 'error';
+      state.itemsCategory = {} as IItemsDisplay;
+    });
+
+    // Item by id.
+    builder.addCase(getItemById.fulfilled, (state, action) => {
+      state.status = 'success';
+      state.itemCurrent = action.payload;
+    });
+    builder.addCase(getItemById.pending, (state) => {
+      state.status = 'pending';
+      state.itemCurrent = {} as IItemDisplay;
+    });
+    builder.addCase(getItemById.rejected, (state) => {
+      state.status = 'error';
+      state.itemCurrent = {} as IItemDisplay;
     });
 
   }});
 
-export const { SetID, SetCategory, SetDisplayItems,SetCatalogSize,SetNavState} = homeSlice.actions;
+export const { SetID, SetCategory, SetDisplayItems} = homeSlice.actions;
 export default homeSlice.reducer;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import cross_sign from "../../../assets/img/cross_sign.png";
-import { IItemsDisplay } from "../../../redux/types";
+import { IItems} from "../../../redux/types";
 import { SetID } from "../../../redux/home/homeSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 
@@ -10,16 +10,16 @@ import "./search.scss";
 
 export const Search = () => {
   const dispatch = useAppDispatch();
-  const DISPLAY_ITEMS = useAppSelector((state) => state.home.itemsDisplay);
+  const {items} = useAppSelector((state) => state.home.itemsDisplay);
 
   const [searchItem, setSearchItem] = useState("");
-  const [localDisplayItems, setLocalItems] = useState<IItemsDisplay[]>([]);
+  const [localDisplayItems, setLocalItems] = useState<IItems[]>([] as IItems[]);
 
   const filterSearch = (entry: string) => {
     if (!entry) {
-      return DISPLAY_ITEMS;
+      return items;
     } else {
-      return DISPLAY_ITEMS.filter((el) =>
+      return items.filter((el) =>
         el.name.toLowerCase().includes(entry.toLowerCase())
       );
     }
@@ -57,10 +57,10 @@ export const Search = () => {
           <Link
             key={el.name}
             to="/marketplace_soket/item"
-            onClick={() => (dispatch(SetID(el.id)), setSearchItem(""))}
+            onClick={() => (setSearchItem(""))}
           >
             {" "}
-            <div key={el.id} className="item">
+            <div key={el._id} className="item">
               {el.name}
             </div>
           </Link>

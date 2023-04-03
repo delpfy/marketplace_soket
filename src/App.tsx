@@ -8,16 +8,12 @@ import ItemPage from "./Pages/Item/ItemPage";
 import HomePage from "./Pages/Home/HomePage";
 
 import { useAppDispatch } from "./redux/hooks";
-import { fetchGoods } from "./redux/home/asyncActions";
+import { getAllItems } from "./redux/home/asyncActions";
 import "./styles/style.css";
 import MenuField from "./Components/Menu/MenuArea/MenuField";
 import AppBarMenu from "./Components/Menu/AppBar/AppBarMenu";
 function App() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchGoods());
-  }, []);
+  
 
   return (
     <>

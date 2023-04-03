@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../LogotypeArea/Logo";
 import Basket from "../BasketArea/Basket";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { SetCategory, SetNavState } from "../../../redux/home/homeSlice";
+import { SetCategory} from "../../../redux/home/homeSlice";
 import {
   Divider,
   List,

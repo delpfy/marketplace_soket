@@ -1,43 +1,44 @@
-import React from "react";
-
+import { Box, Typography } from "@mui/material";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { SetNavState } from "../../../redux/home/homeSlice";
+import { IItems } from "../../../redux/types";
+import { getItemsByCategory } from "../../../redux/home/asyncActions";
 import CatalogTestBlock from "../Block/CatalogTestBlock";
 
 import "./catalogfield.scss";
+import NotFoundPage from "../../../Pages/NotFound/NotFoundPage";
 
 export const CatalogField = () => {
-  const SELECTED_CATEGORY = useAppSelector((state) => state.home.category);
-  const DISPLAY_ITEMS = useAppSelector((state) => state.home.itemsDisplay);
-  const CATALOG_SIZE = useAppSelector((state) => state.home.catalogSize);
-  const IS_OPENED = useAppSelector((state) => state.home.isOpened);
-  const Items = DISPLAY_ITEMS.filter((el) => el.category === SELECTED_CATEGORY);
+  const { category, status } = useAppSelector((state) => state.home);
+  // IItemsDisplay has {items: [{...}]} field in it, so we trying to get
+  // exactly that field.
+  const { items } = useAppSelector((state) => state.home.itemsCategory);
 
   const dispatch = useAppDispatch();
 
-  const SET_NAV_STATE = () => {
-    if (IS_OPENED) {
-      dispatch(SetNavState(false));
-    }
+  // Trying to make request to get items from same category.
+  useEffect(() => {
+    dispatch(getItemsByCategory(category));
+  }, [category]);
+
+  const Catalog = () => {
+    return (
+      <Box>
+        <Box>
+          <Typography variant={"h3"}>{category}</Typography>
+        </Box>
+        <Box>
+          {items.map((item: IItems) => (
+            <CatalogTestBlock key={item._id} {...item} />
+          ))}
+        </Box>
+      </Box>
+    );
   };
 
   return (
-    <div
-      className="catalog"
-      style={{ width: `${CATALOG_SIZE}%` }}
-      onClick={() => SET_NAV_STATE()}
-    >
-      <div className="catalog__head">
-        <div className="catalog__head_category">
-          <strong> {SELECTED_CATEGORY} </strong>
-        </div>
-      </div>
-      <div className="catalog__body">
-        {Items.map((item) => (
-          <CatalogTestBlock key={item.id} {...item} />
-        ))}
-      </div>
-    </div>
+    // 'success' | 'pending'| 'error'
+    status === "success" ? <Catalog /> : <NotFoundPage />
   );
 };
 
