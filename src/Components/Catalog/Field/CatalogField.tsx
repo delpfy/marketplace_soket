@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { IItems } from "../../../redux/types";
+import { IItems, Status } from "../../../redux/types";
 import { getItemsByCategory } from "../../../redux/home/asyncActions";
 
 
@@ -9,6 +9,7 @@ import "./catalogfield.scss";
 
 import Card from "../Block/CatalogCard/Card";
 import Skeleton from "../Block/CatalogCard/Skeleton";
+import NotFoundPage from "../../../Pages/NotFound/NotFoundPage";
 
 export const CatalogField = () => {
   const { category, status } = useAppSelector((state) => state.home);
@@ -99,9 +100,19 @@ export const CatalogField = () => {
     );
   };
 
+  function StatusHandler (status: Status) {
+    switch(status){
+      case "success": return <Catalog />
+      case "pending": return <CatalogSkeletons />
+      case "error":  return <NotFoundPage/>
+      default: return <NotFoundPage/>
+    }
+  }
+
   return (
     // 'success' | 'pending'| 'error'
-    status === "success" ? <Catalog /> : <CatalogSkeletons />
+    StatusHandler(status)
+    
   );
 };
 

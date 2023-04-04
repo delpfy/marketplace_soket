@@ -2,47 +2,51 @@ import { Box } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import socket_logo from "../../../assets/img/socket_logo.png";
 import PowerTwoToneIcon from '@mui/icons-material/PowerTwoTone';
 import "./logo.scss";
 
 export const Logo = () => {
+  const navigate = useNavigate();
   return (
-    <Link to="/marketplace_soket" className="logotype_logo">
+    
       <Box
         display={"flex"}
         flexDirection={"row"}
         justifyContent = {'space-between'}
         alignItems = {'center'}
-        width={140}
-        sx={{ textDecoration: "none" }}
+        color={'black'}
+        width={135}
+        
+        onClick = {() => navigate('/marketplace_soket')}
+        sx={{ cursor: 'pointer'}}
       >
         <Typography 
         variant={"h3"} 
         fontSize={35}
-        height = {32}
-        fontFamily = {'Josefin Sans'}
+        height = {35}
+        fontFamily={"Comfortaa"}
         >
-          Socket
+          S
         </Typography>
         <Box
-        width = {40}
-        height = {40}
+        width = {35}
+        height = {35}
+        paddingTop={0.3}
         >
-          <IconButton
-          sx = {{padding: "0", height: "40px", width: "40px"}}
-          
-          >
-          <PowerTwoToneIcon
-          sx = {{ height: "40px", width: "40px"}}
-          
-          />
-
-          </IconButton>
+          <img src={socket_logo} alt="logo" style={{display: 'flex', width: '100%', height: '100%'}} />
         </Box>
+        <Typography 
+        variant={"h3"} 
+        fontSize={35}
+        height = {35}
+        fontFamily={"Comfortaa"}
+        >
+          cket
+        </Typography>
       </Box>
-    </Link>
+   
   );
 };
 

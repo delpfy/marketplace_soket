@@ -1,8 +1,10 @@
-import { IBasketItemsDisplay} from "../redux/types";
+import { SerializedError } from "@reduxjs/toolkit";
+import { IBasketItemsDisplay, Status} from "../redux/types";
 
 
 export const InitialiseBasket = () => {
   return {
+    status: '' as Status,
     items: {} as IBasketItemsDisplay,
     expences: 0,
   };

@@ -1,8 +1,13 @@
 
 
+
 export type IItemsDisplay = {
   items: IItems[];
 };
+
+export type IUserDisplay = {
+  user: IUser
+}
 
 export type IItemDisplay = {
   items: IItems;
@@ -32,9 +37,19 @@ export type IBasketItems = {
   description: string;
 };
 
+export type IUser = {
+  _id: string;
+  fullName: string;
+  email: string;
+  passwordHash: string;
+  role : string;
+  avatarUrl: string;
+}
+
 export type Status = 'success' | 'pending' | 'error'
 
 export interface BasketState {
+  status: Status;
   items: IBasketItemsDisplay;
   expences: number;
 }
