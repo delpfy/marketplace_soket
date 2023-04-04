@@ -1,1 +1,11 @@
 node_modules
+build/asset-manifest.json
+build/index.html
+build/static/css/main.d3bafbd3.css.map
+build/static/js/main.4cc37ce6.js.LICENSE.txt
+build/static/js/main.4cc37ce6.js
+build/static/css/main.d3bafbd3.css
+build/static/js/main.4cc37ce6.js.map
+node_modules/.cache/.eslintcache
+
+
