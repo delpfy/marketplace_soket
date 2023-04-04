@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/marketplace_soket/static/css/main.fe58f3cf.css",
-    "main.js": "/marketplace_soket/static/js/main.a24b3a9b.js",
-    "static/media/basket_icon.png": "/marketplace_soket/static/media/basket_icon.09b85665d91e0cffa2d4.png",
+    "main.css": "/marketplace_soket/static/css/main.d3bafbd3.css",
+    "main.js": "/marketplace_soket/static/js/main.4cc37ce6.js",
     "index.html": "/marketplace_soket/index.html",
-    "main.fe58f3cf.css.map": "/marketplace_soket/static/css/main.fe58f3cf.css.map",
-    "main.a24b3a9b.js.map": "/marketplace_soket/static/js/main.a24b3a9b.js.map"
+    "main.d3bafbd3.css.map": "/marketplace_soket/static/css/main.d3bafbd3.css.map",
+    "main.4cc37ce6.js.map": "/marketplace_soket/static/js/main.4cc37ce6.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe58f3cf.css",
-    "static/js/main.a24b3a9b.js"
+    "static/css/main.d3bafbd3.css",
+    "static/js/main.4cc37ce6.js"
   ]
 }

@@ -10,20 +10,17 @@ import { Box, IconButton, Rating, createTheme } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { getItemById } from "../../../../redux/home/asyncActions";
 import { useNavigate } from "react-router-dom";
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { pink, purple } from '@mui/material/colors';
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { pink, purple } from "@mui/material/colors";
 import { addBasketItem } from "../../../../redux/basket/asyncActions";
 import { checkAuthorization } from "../../../../redux/user/asyncActions";
 
 export default function CatalogCard(props: IItems) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const {user} = useAppSelector((state) => state.user)
-  const [active, setActive] = React.useState<boolean>(false)
-  const {status} = useAppSelector((state) => state.basket)
-
-
-  
+  const { user } = useAppSelector((state) => state.user);
+  const [active, setActive] = React.useState<boolean>(false);
+  const { status } = useAppSelector((state) => state.basket);
 
   // Redirecting to ItemPage
   function Redirect() {
@@ -31,27 +28,27 @@ export default function CatalogCard(props: IItems) {
     navigate("/marketplace_soket/item");
   }
 
-  function PutInBasket () {
+  function PutInBasket() {
     dispatch(checkAuthorization());
-    if(user.authorized == true){
-      dispatch(addBasketItem({
-        name: props.name,
-        description: props.name,
-        category: props.category,
-        price: props.price,
-        rating: props.rating,
-        image: props.image,
-        amount: 1,
-      } as IBasketItems))
+    if (user.authorized == true) {
+      dispatch(
+        addBasketItem({
+          name: props.name,
+          description: props.name,
+          category: props.category,
+          price: props.price,
+          rating: props.rating,
+          image: props.image,
+          amount: 1,
+        } as IBasketItems)
+      );
+    } else {
+      alert("Unavailible action");
     }
-    else{
-      alert("Unavailible action")
+
+    if (status == "success") {
+      setActive(!active);
     }
-      
-    
-    
-    if(status == 'success') {setActive(!active)}
-    
   }
 
   return (
@@ -79,7 +76,7 @@ export default function CatalogCard(props: IItems) {
         onClick={() => Redirect()}
       />
 
-      <CardContent sx = {{paddingBottom: 2}}>
+      <CardContent sx={{ paddingBottom: 2 }}>
         <Typography
           gutterBottom
           variant="h5"
@@ -88,7 +85,7 @@ export default function CatalogCard(props: IItems) {
           maxHeight={60}
           overflow={"hidden"}
           fontFamily={"Comfortaa"}
-          textAlign={'justify'}
+          textAlign={"justify"}
           paddingBottom={1}
         >
           {props.name}
@@ -100,7 +97,7 @@ export default function CatalogCard(props: IItems) {
           color="text.secondary"
           overflow={"hidden"}
           fontFamily={"Comfortaa"}
-          textAlign={'justify'}
+          textAlign={"justify"}
         >
           {props.description}
         </Typography>
@@ -110,28 +107,30 @@ export default function CatalogCard(props: IItems) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingTop : 0,
-          paddingLeft : '16px',
-          paddingRight : '16px'
+          paddingTop: 0,
+          paddingLeft: "16px",
+          paddingRight: "16px",
         }}
-        
       >
-        <Box
-        display={'flex'}
-        flexDirection={'column'}
-        
-        
-        >
-          
-          <Typography paddingLeft={0.3} fontSize={22} fontFamily={"Comfortaa"} color={'error'}>{props.price}₴</Typography>
+        <Box display={"flex"} flexDirection={"column"}>
+          <Typography
+            paddingLeft={0.3}
+            fontSize={22}
+            fontFamily={"Comfortaa"}
+            color={"error"}
+          >
+            {props.price}₴
+          </Typography>
           <Rating name="read-only" value={props.rating} readOnly />
-          
         </Box>
 
         <Box>
-        <IconButton sx = {{paddind: 0}} onClick={() => PutInBasket()}>
-            <ShoppingBasketIcon sx = {{height: 30, width: 30 }}  color = {active ? 'secondary' : 'disabled'} />
-        </IconButton>
+          <IconButton sx={{ paddind: 0 }} onClick={() => PutInBasket()}>
+            <ShoppingBasketIcon
+              sx={{ height: 30, width: 30 }}
+              color={active ? "secondary" : "disabled"}
+            />
+          </IconButton>
         </Box>
       </CardActions>
     </Card>
